@@ -18,4 +18,8 @@ extension UIView {
     @objc func onViewClicked(sender: ClickListener) {
         sender.onClick?()
     }
+
+    static var reuseIdentifier: String {
+        String(describing: self)
+    }
 }

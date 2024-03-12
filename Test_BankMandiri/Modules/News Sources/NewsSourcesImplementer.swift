@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+// MARK: Interactor Protocol
 class NewsSourcesInteractor: NewsSourcesInteractorProtocol {
     weak var presenter: NewsSourcesPresenter?
     private let selectedCategory: String
@@ -17,10 +18,11 @@ class NewsSourcesInteractor: NewsSourcesInteractorProtocol {
     }
 
     func fetchSourceList() {
-        guard let url = NetworkClient.shared.buildURL(baseURL: "https://newsapi.org", 
-                                                      path: "/v2/top-headlines/sources",
-                                                      queryItems: [.init(name: "category", value: "business")])
-        else {
+        guard let url = NetworkClient.shared.buildURL(
+            baseURL: "https://newsapi.org",
+            path: "/v2/top-headlines/sources",
+            queryItems: [.init(name: "category", value: selectedCategory)]
+        ) else {
             presenter?.didFetchSourceList(with: NetworkError.invalidURL)
             return
         }
@@ -35,6 +37,7 @@ class NewsSourcesInteractor: NewsSourcesInteractorProtocol {
     }
 }
 
+// MARK: Presenter Protocol
 class NewsSourcesPresenter: NewsSourcesPresenterProtocol {
     weak var view: NewsSourcesViewProtocol?
     var interactor: NewsSourcesInteractorProtocol?
@@ -48,6 +51,11 @@ class NewsSourcesPresenter: NewsSourcesPresenterProtocol {
         router?.navigateToArticleList()
     }
 
+    func onBackButtonPressed() {
+        router?.navigateToPreviousPage()
+    }
+
+    // MARK: - Interactor-side Methods
     func didFetchSourceList(sources: [NewsSource]) {
         view?.showSourceList(sources)
     }
@@ -57,9 +65,15 @@ class NewsSourcesPresenter: NewsSourcesPresenterProtocol {
     }
 }
 
+// MARK: Router Protocol
 class NewsSourcesRouter: NewsSourcesRouterProtocol {
     weak var view: UIViewController?
 
     func navigateToArticleList() {
+        // TODO: assign method here
+    }
+
+    func navigateToPreviousPage() {
+        view?.navigationController?.popViewController(animated: true)
     }
 }

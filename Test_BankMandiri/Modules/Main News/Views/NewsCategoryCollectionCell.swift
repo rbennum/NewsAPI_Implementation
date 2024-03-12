@@ -10,8 +10,6 @@ import UIKit
 import SnapKit
 
 class NewsCategoryCollectionCell: UICollectionViewCell {
-    static let reuseIdentifier = String(describing: NewsCategoryCollectionCell.self)
-    
     let label: UILabel = {
         let label = UILabel()
         label.textAlignment = .center

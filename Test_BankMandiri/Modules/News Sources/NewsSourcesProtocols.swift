@@ -17,8 +17,10 @@ protocol NewsSourcesInteractorProtocol {
 protocol NewsSourcesPresenterProtocol {
     func viewDidLoad()
     func onSourceItemTapped()
+    func onBackButtonPressed()
 }
 
 protocol NewsSourcesRouterProtocol {
     func navigateToArticleList()
+    func navigateToPreviousPage()
 }

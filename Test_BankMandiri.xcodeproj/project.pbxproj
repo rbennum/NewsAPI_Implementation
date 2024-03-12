@@ -33,6 +33,7 @@
 		6DD96E1F2BA0953300657AA7 /* ClickListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DD96E1E2BA0953300657AA7 /* ClickListener.swift */; };
 		6DD96E222BA0956700657AA7 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DD96E212BA0956700657AA7 /* UIView+.swift */; };
 		6DD96E242BA09C9B00657AA7 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DD96E232BA09C9B00657AA7 /* UIImage+.swift */; };
+		6DD96E272BA0B3F400657AA7 /* NewsSourcesTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DD96E262BA0B3F400657AA7 /* NewsSourcesTableCell.swift */; };
 		AB50E0ADA68B6F9BDD9E3EA7 /* Pods_Test_BankMandiri_Test_BankMandiriUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4AF8E30E443B2727FE12889 /* Pods_Test_BankMandiri_Test_BankMandiriUITests.framework */; };
 		F7DF79077E2FE8483E3A3660 /* Pods_Test_BankMandiri.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEBBBEC9A7BE8592B1BE95B4 /* Pods_Test_BankMandiri.framework */; };
 /* End PBXBuildFile section */
@@ -86,6 +87,7 @@
 		6DD96E1E2BA0953300657AA7 /* ClickListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClickListener.swift; sourceTree = "<group>"; };
 		6DD96E212BA0956700657AA7 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		6DD96E232BA09C9B00657AA7 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
+		6DD96E262BA0B3F400657AA7 /* NewsSourcesTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsSourcesTableCell.swift; sourceTree = "<group>"; };
 		7C61169385D05AC2637F7387 /* Pods-Test_BankMandiri.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Test_BankMandiri.release.xcconfig"; path = "Target Support Files/Pods-Test_BankMandiri/Pods-Test_BankMandiri.release.xcconfig"; sourceTree = "<group>"; };
 		ADD101DEE16E0E380EEEA5D2 /* Pods-Test_BankMandiri-Test_BankMandiriUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Test_BankMandiri-Test_BankMandiriUITests.release.xcconfig"; path = "Target Support Files/Pods-Test_BankMandiri-Test_BankMandiriUITests/Pods-Test_BankMandiri-Test_BankMandiriUITests.release.xcconfig"; sourceTree = "<group>"; };
 		AEBBBEC9A7BE8592B1BE95B4 /* Pods_Test_BankMandiri.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Test_BankMandiri.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -143,6 +145,7 @@
 		6D7679842B9FD51300722CE4 /* News Sources */ = {
 			isa = PBXGroup;
 			children = (
+				6DD96E252BA0B3D200657AA7 /* Views */,
 				6D7679852B9FD52D00722CE4 /* NewsSourcesVC.swift */,
 				6D7679872B9FD53A00722CE4 /* NewsSourcesProtocols.swift */,
 				6D7679892B9FD55E00722CE4 /* NewsSourcesImplementer.swift */,
@@ -254,6 +257,14 @@
 				6DD96E232BA09C9B00657AA7 /* UIImage+.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		6DD96E252BA0B3D200657AA7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6DD96E262BA0B3F400657AA7 /* NewsSourcesTableCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		6E71754D17492A5374D97ABA /* Pods */ = {
@@ -520,6 +531,7 @@
 			files = (
 				6D76798E2B9FE09E00722CE4 /* NewsSourceResponse.swift in Sources */,
 				6D7679862B9FD52D00722CE4 /* NewsSourcesVC.swift in Sources */,
+				6DD96E272BA0B3F400657AA7 /* NewsSourcesTableCell.swift in Sources */,
 				6D7679792B9F9A0700722CE4 /* MainNewsImplementer.swift in Sources */,
 				6D76798A2B9FD55E00722CE4 /* NewsSourcesImplementer.swift in Sources */,
 				6D76797E2B9FAE8E00722CE4 /* NetworkClient.swift in Sources */,

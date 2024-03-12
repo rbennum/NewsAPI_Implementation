@@ -13,6 +13,7 @@ class HeaderView: UIView {
     private lazy var label: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 18.0, weight: .bold)
+        label.textColor = .black
         return label
     }()
     private lazy var backButton: UIImageView = {
@@ -24,9 +25,6 @@ class HeaderView: UIView {
         }
         imageView.contentMode = .scaleAspectFit
         imageView.isHidden = true
-        if let action = self.onBackButtonPressed {
-            imageView.onClick(action: action)
-        }
         return imageView
     }()
     private lazy var stackView: UIStackView = {
@@ -57,11 +55,19 @@ class HeaderView: UIView {
         stackView.snp.makeConstraints {
             $0.top.bottom.equalToSuperview()
             $0.leading.trailing.equalToSuperview().inset(16.0)
-            $0.height.equalTo(40.0)
         }
+        let tapGesture = UITapGestureRecognizer(
+            target: self,
+            action: #selector(backButtonTapped)
+        )
+        backButton.addGestureRecognizer(tapGesture)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    @objc private func backButtonTapped(sender: UITapGestureRecognizer? = nil) {
+        onBackButtonPressed?()
     }
 }
