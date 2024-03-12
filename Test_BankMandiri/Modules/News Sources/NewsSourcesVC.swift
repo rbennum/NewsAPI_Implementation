@@ -10,6 +10,17 @@ import UIKit
 import SnapKit
 
 class NewsSourcesVC: UIViewController {
+    private lazy var headerView: UIView = {
+        let view = HeaderView(title: category.capitalized)
+        view.showBackButton = true
+        view.onBackButtonPressed = self.onBackButtonPressed
+        return view
+    }()
+    private lazy var activityIndicator: UIActivityIndicatorView = {
+        let view = UIActivityIndicatorView(style: .large)
+        return view
+    }()
+
     var presenter: NewsSourcesPresenterProtocol?
     private let category: String
 
@@ -24,10 +35,13 @@ class NewsSourcesVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
+        setupConstraints()
         presenter?.viewDidLoad()
     }
 }
 
+// MARK: ViewProtocol
 extension NewsSourcesVC: NewsSourcesViewProtocol {
     func showSourceList(_ items: [NewsSource]) {
     }
@@ -36,6 +50,7 @@ extension NewsSourcesVC: NewsSourcesViewProtocol {
     }
 }
 
+// MARK: Assembly
 extension NewsSourcesVC {
     class Assembly {
         static func createModule(category: String) -> UIViewController {
@@ -51,5 +66,23 @@ extension NewsSourcesVC {
             router.view = view
             return view
         }
+    }
+}
+
+// MARK: Private methods
+private extension NewsSourcesVC {
+    func setupUI() {
+        self.view.addSubview(headerView)
+    }
+
+    func setupConstraints() {
+        headerView.snp.makeConstraints {
+            $0.top.equalTo(self.view.safeAreaLayoutGuide)
+            $0.leading.trailing.equalToSuperview()
+        }
+    }
+
+    func onBackButtonPressed() {
+        debugPrint("_BQR: back button pressed")
     }
 }

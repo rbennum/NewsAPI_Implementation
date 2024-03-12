@@ -23,7 +23,7 @@ class NewsSourcesInteractor: NewsSourcesInteractorProtocol {
         else {
             presenter?.didFetchSourceList(with: NetworkError.invalidURL)
             return
-        }{
+        }
         NetworkClient.shared.sendRequest(with: url, type: NewsSourceResponse.self) {
             switch $0 {
             case .success(let response):

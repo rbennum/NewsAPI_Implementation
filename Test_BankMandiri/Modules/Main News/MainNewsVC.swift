@@ -33,9 +33,9 @@ class MainNewsVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter?.viewDidLoad()
         setupUI()
         setupConstraints()
+        presenter?.viewDidLoad()
     }
 }
 
@@ -99,7 +99,6 @@ extension MainNewsVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLa
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // Handle item selection
         let selectedItem = categories[indexPath.item]
         presenter?.onCategoryItemTapped(category: selectedItem)
     }
@@ -107,6 +106,6 @@ extension MainNewsVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLa
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let text = categories[indexPath.item]
         let width = text.size(withAttributes: [.font: UIFont.systemFont(ofSize: 17)]).width + 20 // Adding padding
-        return CGSize(width: width, height: 40) // Adjust height as needed
+        return CGSize(width: width, height: 40)
     }
 }
